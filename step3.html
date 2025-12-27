@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechado para Balanço - Fase 01</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold text-center mb-2">Fechado para Balanço - Canvas</h1>
+        <p class="text-center mb-6">"ENSINA-NOS A CONTAR (ORGANIZAR) OS NOSSOS DIAS…" SALMOS 90:12</p>
+
+        <div class="mb-4 flex items-center justify-between text-sm font-semibold text-gray-700">
+            <div id="stepCount">Passo 3 de 11</div>
+            <div>Fase: <span id="phaseLabel">FASE 01</span></div>
+            <div id="progressPercent">0%</div>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-6">
+            <div id="progressBar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+        </div>
+
+        <div class="space-y-2 mb-6">
+            <div class="text-xs font-bold text-gray-500">FASE 01</div>
+            <div class="grid grid-cols-6 gap-2">
+                <a data-step-link="1" href="index.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-pause-circle"></i><span>Pausa Intencional</span></a>
+                <a data-step-link="2" href="step2.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-users"></i><span>Relacional</span></a>
+                <a data-step-link="3" href="step3.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-home"></i><span>Familiar</span></a>
+                <a data-step-link="4" href="step4.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-pray"></i><span>Espiritual</span></a>
+                <a data-step-link="5" href="step5.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-scale-balanced"></i><span>Débitos/Créditos</span></a>
+                <a data-step-link="6" href="step6.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-chart-line"></i><span>Análise</span></a>
+            </div>
+            <div class="text-xs font-bold text-gray-500 mt-4">FASE 02</div>
+            <div class="grid grid-cols-5 gap-2">
+                <a data-step-link="7" href="step7.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-tools"></i><span>Ajustes</span></a>
+                <a data-step-link="8" href="step8.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-broom"></i><span>Organização</span></a>
+                <a data-step-link="9" href="step9.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-graduation-cap"></i><span>Treinamento</span></a>
+                <a data-step-link="10" href="step10.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-hands"></i><span>Entregue ao Abba</span></a>
+                <a data-step-link="11" href="step11.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-flag-checkered"></i><span>Final</span></a>
+            </div>
+        </div>
+
+        <form id="balancoForm" class="space-y-4">
+            <h2 class="text-2xl font-semibold mb-2">ETAPA 2 – CONFERÊNCIA DE ESTOQUE (VIDA REAL) - FAMILIAR</h2>
+            <div>
+                <label class="block font-medium">MEU CASAMENTO MELHOROU OU PIOROU EM 2025?</label>
+                <div class="mt-2 flex flex-wrap gap-3">
+                    <label class="cursor-pointer">
+                        <input type="radio" name="etapa2_fam_casamento" value="MELHOROU" class="peer sr-only">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-blue-50 transition peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600">MELHOROU</span>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="etapa2_fam_casamento" value="PIOROU" class="peer sr-only">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-blue-50 transition peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600">PIOROU</span>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="etapa2_fam_casamento" value="DO MESMO JEITO" class="peer sr-only">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 text-gray-700 whitespace-nowrap hover:bg-blue-50 transition peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600">DO MESMO JEITO</span>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <label class="block font-medium">MEUS FILHOS SENTEM MINHA PRESENÇA OU SÓ MINHA PROVISÃO?</label>
+                <div class="mt-2 flex flex-wrap gap-3">
+                    <label class="cursor-pointer">
+                        <input type="radio" name="etapa2_fam_filhos" value="MINHA PRESENÇA" class="peer sr-only">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 text-gray-700 whitespace-nowrap hover:bg-blue-50 transition peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600">MINHA PRESENÇA</span>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="etapa2_fam_filhos" value="MINHA PROVISÃO" class="peer sr-only">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 text-gray-700 whitespace-nowrap hover:bg-blue-50 transition peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600">MINHA PROVISÃO</span>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="etapa2_fam_filhos" value="OS DOIS" class="peer sr-only">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-blue-50 transition peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600">OS DOIS</span>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <label class="block font-medium">O QUE PRECISA SER AJUSTADO DENTRO DE CASA?</label>
+                <textarea maxlength="200" class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-800" rows="3" name="etapa2_fam_ajuste"></textarea>
+            </div>
+        </form>
+
+        <div class="flex justify-between mt-8">
+            <button id="prevBtn" class="bg-gray-500 text-white px-4 py-2 rounded disabled:opacity-50">Anterior</button>
+            <button id="nextBtn" class="bg-blue-600 text-white px-4 py-2 rounded">Próximo</button>
+        </div>
+    </div>
+
+    <script src="wizard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => initWizard(3));
+    </script>
+</body>
+</html>

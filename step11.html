@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechado para Balanço - Fase 02</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-white to-purple-50 min-h-screen p-4">
+    <div class="max-w-6xl mx-auto bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
+        <div class="flex items-center justify-center gap-4 mb-4">
+            <img src="assets/FechadoBalan%C3%A7oLogo.png" alt="Fechado para Balanço" class="h-16 object-contain">
+        </div>
+        <h1 class="text-3xl font-bold text-center mb-2 text-gray-800">FECHADO PARA BALANÇO</h1>
+        <p class="text-center mb-6 text-sm text-gray-600 italic">"ENSINA-NOS A CONTAR (ORGANIZAR) OS NOSSOS DIAS…" SALMOS 90:12</p>
+
+        <div class="mb-4 flex items-center justify-between text-sm font-semibold text-gray-700">
+            <div id="stepCount">Passo 11 de 11</div>
+            <div>Fase: <span id="phaseLabel">FASE 02</span></div>
+            <div id="progressPercent">0%</div>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-6">
+            <div id="progressBar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+        </div>
+
+        <div class="space-y-2 mb-6">
+            <div class="text-xs font-bold text-gray-500">FASE 01</div>
+            <div class="grid grid-cols-4 gap-2">
+                <a data-step-link="1" href="index.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-pause-circle"></i><span>Pausa Intencional</span></a>
+                <a data-step-link="2" href="step2.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-users"></i><span>Estoque</span></a>
+                <a data-step-link="3" href="step5.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-scale-balanced"></i><span>Débitos/Créditos</span></a>
+                <a data-step-link="4" href="step6.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-chart-line"></i><span>Análise</span></a>
+            </div>
+            <div class="text-xs font-bold text-gray-500 mt-4">FASE 02</div>
+            <div class="grid grid-cols-5 gap-2">
+                <a data-step-link="5" href="step7.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-tools"></i><span>Ajustes</span></a>
+                <a data-step-link="6" href="step8.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-broom"></i><span>Organização</span></a>
+                <a data-step-link="7" href="step9.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-graduation-cap"></i><span>Treinamento</span></a>
+                <a data-step-link="8" href="step10.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-hands"></i><span>Entregue ao Abba</span></a>
+                <a data-step-link="9" href="step11.html" class="tab-link flex items-center justify-center gap-2 text-sm font-semibold border border-gray-200 py-2 px-3 bg-gray-50 hover:bg-white transition text-gray-700"><i class="fas fa-flag-checkered"></i><span>Final</span></a>
+            </div>
+        </div>
+
+        <form id="balancoForm" class="space-y-6">
+            <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold">ETAPA 9 – ENCERRAMENTO</h2>
+            </div>
+
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 space-y-4 shadow-sm">
+                <div>
+                    <label class="block font-medium text-gray-700 mb-2">DECLARAÇÃO</label>
+                    <textarea maxlength="200" class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-800" rows="3" name="etapa9_declaracao">EU, __________, DECLARO QUE ESCOLHO VIVER UMA NOVA VIDA, EM UMA NOVA HISTÓRIA.</textarea>
+                </div>
+                <div>
+                    <label class="block font-medium text-gray-700 mb-2">ME COMPROMETO</label>
+                    <textarea maxlength="200" class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-800" rows="3" name="etapa9_compromisso">ME COMPROMETO A CUMPRIR OS PRECEITOS DA BÍBLIA, NOS PRÓXIMOS 12 MESES.</textarea>
+                </div>
+            </div>
+        </form>
+
+        <div class="flex justify-between mt-8">
+            <button id="prevBtn" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed shadow-md"><i class="fas fa-arrow-left mr-2"></i>Anterior</button>
+            <button id="downloadBtn" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition shadow-md"><i class="fas fa-download mr-2"></i>Baixar PDF</button>
+        </div>
+    </div>
+
+    <script src="wizard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => initWizard(9));
+    </script>
+</body>
+</html>
