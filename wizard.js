@@ -123,13 +123,15 @@ function highlightTabs(currentId) {
   document.querySelectorAll('[data-step-link]').forEach((link) => {
     const step = Number(link.dataset.stepLink);
     // limpar estilos para evitar conflito de utilitários Tailwind
-    link.classList.remove('bg-blue-600', 'text-white', 'border-blue-600', 'shadow', 'shadow-md');
-    link.classList.remove('bg-gray-50', 'text-gray-700', 'border-gray-200');
-    link.classList.remove('ring-2', 'ring-blue-400', 'ring-offset-2', 'ring-offset-white');
+    link.classList.remove(
+      'bg-blue-600', 'text-white', 'border-blue-600', 'shadow', 'shadow-md',
+      'bg-white', 'text-blue-700', 'border-blue-500', 'ring-2', 'ring-blue-500', 'ring-offset-1',
+      'bg-gray-50', 'text-gray-700', 'border-gray-200'
+    );
 
     if (step === currentId) {
-      // estado ativo: alto contraste e borda azul
-      link.classList.add('bg-blue-600', 'text-white', 'border-blue-600', 'shadow-md', 'ring-2', 'ring-blue-400', 'ring-offset-2', 'ring-offset-white');
+      // estado ativo: quadro com borda azul e leve realce
+      link.classList.add('bg-white', 'text-blue-700', 'border-blue-500', 'ring-2', 'ring-blue-500', 'ring-offset-1');
       link.setAttribute('aria-current', 'page');
     } else {
       // estado padrão
