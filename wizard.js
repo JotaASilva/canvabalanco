@@ -183,6 +183,44 @@ function initWizard(currentId) {
   if (progressPercentMobileEl) progressPercentMobileEl.textContent = `${percent}%`;
   if (progressBarMobileEl) progressBarMobileEl.style.width = `${percent}%`;
 
+  // Garantir que em telas pequenas (mobile) apenas a barra mobile esteja visível
+  const enforceSingleMobileProgress = () => {
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    if (isMobile) {
+      // esconder widgets de progresso do desktop caso algum esteja visível
+      [
+        document.getElementById('progressBar'),
+        document.getElementById('progressPercent'),
+        document.getElementById('stepCount'),
+        document.getElementById('phaseLabel'),
+      ].forEach((el) => {
+        if (!el) return;
+        const container = el.closest('div');
+        if (container) container.style.display = 'none';
+      });
+
+      // se existirem múltiplos elementos mobile por algum motivo, manter só o primeiro
+      const mobileBars = document.querySelectorAll('#progressBarMobile');
+      mobileBars.forEach((el, idx) => {
+        if (idx > 0 && el.parentElement) el.parentElement.style.display = 'none';
+      });
+    } else {
+      // restaurar visual do desktop quando não for mobile
+      [
+        document.getElementById('progressBar'),
+        document.getElementById('progressPercent'),
+        document.getElementById('stepCount'),
+        document.getElementById('phaseLabel'),
+      ].forEach((el) => {
+        if (!el) return;
+        const container = el.closest('div');
+        if (container) container.style.display = '';
+      });
+    }
+  };
+  enforceSingleMobileProgress();
+  window.addEventListener('resize', enforceSingleMobileProgress);
+
   highlightTabs(currentId);
   // garantir que o ícone ativo esteja visível/centralizado no cabeçalho mobile
   centerActiveMobileNav(currentId);
