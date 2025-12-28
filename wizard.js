@@ -149,6 +149,11 @@ function initWizard(currentId) {
   const phaseLabelEl = document.getElementById('phaseLabel');
   const progressPercentEl = document.getElementById('progressPercent');
   const progressBarEl = document.getElementById('progressBar');
+  // elementos mobile (quando presentes)
+  const stepCountMobileEl = document.getElementById('stepCountMobile');
+  const phaseLabelMobileEl = document.getElementById('phaseLabelMobile');
+  const progressPercentMobileEl = document.getElementById('progressPercentMobile');
+  const progressBarMobileEl = document.getElementById('progressBarMobile');
   const form = document.getElementById('balancoForm');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
@@ -158,6 +163,10 @@ function initWizard(currentId) {
   if (phaseLabelEl) phaseLabelEl.textContent = current.phase;
   if (progressPercentEl) progressPercentEl.textContent = `${percent}%`;
   if (progressBarEl) progressBarEl.style.width = `${percent}%`;
+  if (stepCountMobileEl) stepCountMobileEl.textContent = `Passo ${currentId} de ${total}`;
+  if (phaseLabelMobileEl) phaseLabelMobileEl.textContent = current.phase;
+  if (progressPercentMobileEl) progressPercentMobileEl.textContent = `${percent}%`;
+  if (progressBarMobileEl) progressBarMobileEl.style.width = `${percent}%`;
 
   highlightTabs(currentId);
   // coletar título da página
