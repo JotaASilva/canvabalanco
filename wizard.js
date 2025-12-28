@@ -1,13 +1,13 @@
 const steps = [
-  { id: 1, file: 'index.html', label: 'Pausa Intencional', phase: 'FASE 01' },
-  { id: 2, file: 'step2.html', label: 'Estoque', phase: 'FASE 01' },
-  { id: 3, file: 'step5.html', label: 'Débitos/Créditos', phase: 'FASE 01' },
-  { id: 4, file: 'step6.html', label: 'Análise', phase: 'FASE 01' },
-  { id: 5, file: 'step7.html', label: 'Ajustes', phase: 'FASE 02' },
-  { id: 6, file: 'step8.html', label: 'Organização', phase: 'FASE 02' },
-  { id: 7, file: 'step9.html', label: 'Treinamento', phase: 'FASE 02' },
-  { id: 8, file: 'step10.html', label: 'Entregue ao Abba', phase: 'FASE 02' },
-  { id: 9, file: 'step11.html', label: 'Final', phase: 'FASE 02' }
+  { id: 1, file: 'index.html', label: 'Pausa Intencional', phase: 'GRUPO 01 - AVALIANDO GANHOS E PERDAS' },
+  { id: 2, file: 'step2.html', label: 'Estoque', phase: 'GRUPO 01 - AVALIANDO GANHOS E PERDAS' },
+  { id: 3, file: 'step5.html', label: 'Débitos/Créditos', phase: 'GRUPO 01 - AVALIANDO GANHOS E PERDAS' },
+  { id: 4, file: 'step6.html', label: 'Análise', phase: 'GRUPO 01 - AVALIANDO GANHOS E PERDAS' },
+  { id: 5, file: 'step7.html', label: 'Ajustes', phase: 'GRUPO 02 - CORRIGINDO A ROTA' },
+  { id: 6, file: 'step8.html', label: 'Organização', phase: 'GRUPO 02 - CORRIGINDO A ROTA' },
+  { id: 7, file: 'step9.html', label: 'Treinamento', phase: 'GRUPO 02 - CORRIGINDO A ROTA' },
+  { id: 8, file: 'step10.html', label: 'Entregue ao Abba', phase: 'GRUPO 02 - CORRIGINDO A ROTA' },
+  { id: 9, file: 'step11.html', label: 'Final', phase: 'GRUPO 02 - CORRIGINDO A ROTA' }
 ];
 
 const baseStorageKey = 'balancoRespostas';
@@ -141,6 +141,19 @@ function highlightTabs(currentId) {
   });
 }
 
+function centerActiveMobileNav(currentId) {
+  const containers = document.querySelectorAll('.overflow-x-auto');
+  containers.forEach((container) => {
+    const nav = container.querySelector('nav');
+    if (!nav) return;
+    const active = nav.querySelector(`[data-step-link="${currentId}"]`);
+    if (!active) return;
+    const target = active.offsetLeft - (container.clientWidth - active.clientWidth) / 2;
+    const maxScroll = Math.max(0, nav.scrollWidth - container.clientWidth);
+    container.scrollLeft = Math.max(0, Math.min(target, maxScroll));
+  });
+}
+
 function initWizard(currentId) {
   currentStepId = currentId;
   const total = steps.length;
@@ -171,6 +184,9 @@ function initWizard(currentId) {
   if (progressBarMobileEl) progressBarMobileEl.style.width = `${percent}%`;
 
   highlightTabs(currentId);
+  // garantir que o ícone ativo esteja visível/centralizado no cabeçalho mobile
+  centerActiveMobileNav(currentId);
+  setTimeout(() => centerActiveMobileNav(currentId), 60);
   // coletar título da página
   const meta = ensureMeta();
   const pageTitleEl = document.querySelector('h2');
